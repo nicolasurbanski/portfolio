@@ -1,0 +1,30 @@
+/* LIGHT AND DARK THEME */
+@theme {
+    --color-border: oklch(var(--border));
+    --color-background: oklch(var(--background));
+    --color-card: oklch(var(--card));
+    --color-foreground: oklch(var(--foreground));
+  }
+  
+  @layer base {
+    :root {
+      --vh: 100vh;
+      --primary-background: 96% 0 0;
+      --secondary-background: 85% 0 0;
+      --foreground: 20% 0 0.3;
+      --border: 77% 0 0;
+      --card: 85% 0 82.16;
+      --card-hover: 96% 0 0;
+      --globe: 97% 0 0;
+    }
+  
+    .dark {
+      --primary-background: 15% 0 0;
+      --secondary-background: 23% 0 0;
+      --foreground: 95% 0 0;
+      --border: 39.5% 0 0;
+      --card: 44% 0 0;
+      --card-hover: 32% 0 0;
+      --globe: 15% 0 0;
+    }
+  }

@@ -1,0 +1,91 @@
+<div
+  id="contact"
+  class="flex items-center justify-center h-screen w-full bg-[oklch(var(--primary-background))] text-[oklch(var(--foreground))]"
+>
+  <form
+    id="contact-form"
+    action="https://formsubmit.co/urbanskinicodev@gmail.com"
+    method="POST"
+    class="drop-shadow-md drop-shadow-[oklch(var(--card))]/90 flex items-center justify-center flex-col bg-[oklch(var(--primary-background))] w-[70vw] h-[90vh] lg:w-1/2 rounded-md"
+  >
+    <div class="text-center space-y-8">
+      <h1 class="text-2xl mt-2">Contactame</h1>
+      <div class="text-start pb-3">
+        <div class="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
+          <div class="sm:col-span-12">
+            <label for="first-name" class="block text-md font-medium"
+              >nombre</label
+            >
+            <div class="mt-2">
+              <input
+                id="first-name"
+                type="text"
+                name="first-name"
+                autocomplete="given-name"
+                required
+                class="block w-full rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="last-name" class="block text-/6 font-medium"
+              >apellido</label
+            >
+            <div class="mt-2">
+              <input
+                id="last-name"
+                type="text"
+                name="last-name"
+                autocomplete="family-name"
+                required
+                class="block w-full rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="email" class="block text-md font-medium">Email</label>
+            <div class="mt-2">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                class="block rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sm:col-span-full">
+      <label for="about" class="block text-md font-medium">Mensaje</label>
+      <div class="mt-2">
+        <textarea
+          id="about"
+          name="about"
+          rows="7"
+          required
+          class="rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-[oklch(var(--foreground))] focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:w-100"
+        ></textarea>
+      </div>
+    </div>
+    <div class="mt-6 flex items-center justify-center gap-x-6">
+      <button
+        onclick="formReset()"
+        type="button"
+        class="font-bold bg-[oklch(var(--secondary-background))] rounded-md px-3 py-2 text-sm"
+      >
+        Cancelar
+      </button>
+      <button
+        type="submit"
+        class="border rounded-md px-3 py-2 text-sm font-bold"
+      >
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>

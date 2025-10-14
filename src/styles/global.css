@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  background-color: oklch(var(--primary-background));
+  @apply font-serif;
+}
+
+section,
+.globe,
+#bgVideo{
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: -webkit-fill-available;
+}
+
+body.loading * {
+  transition: none !important;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PROJECTS */
+.appearL-on-scroll {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.appearL-on-scroll.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.appearR-on-scroll {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.appearR-on-scroll.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* SOCIAL */
+.animate-globe {
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1.5s ease, transform 0.6s ease;
+}
+
+.animate-globe.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.globe {
+  width: 100%;
+  clip-path: circle(550px at center bottom);
+  background-color: oklch(var(--globe));
+  position: relative;
+  contain: layout paint;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  height: 1.5rem;
+}
+
+.animate-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: listAnimation 6s infinite;
+}
+
+.animate-list li {
+  height: 1.5rem;
+  margin: 0;
+}
+
+#socials {
+  filter: drop-shadow(0 0 15px #d3d3d3);
+}
+
+#arrow-down {
+  animation: disappearance 1.5s infinite;
+}
+
+#arrow.show {
+  animation: appearance 0.7s forwards;
+  pointer-events: auto;
+}
+
+#arrow.hide {
+  animation: disappearance 0.7s forwards;
+  pointer-events: none;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    filter: brightness(50%);
+  }
+}
+
+@keyframes appearance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes disappearance {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes up {
+  from {
+    opacity: 0.5;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+@keyframes listAnimation {
+  0%,
+  20% {
+    transform: translateY(0);
+  }
+  33%,
+  53% {
+    transform: translateY(-1.5rem);
+  }
+  66%,
+  86% {
+    transform: translateY(-3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

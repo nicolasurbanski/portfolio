@@ -1,0 +1,35 @@
+---
+const { 
+  imgSrc, 
+  title, 
+  description, 
+  href = "#", 
+  appear = "appearL-on-scroll" 
+} = Astro.props;
+---
+
+<a href={href}>
+  <div
+    class={`group ${appear} sm:hover:cursor-pointer hover:bg-[oklch(var(--card-hover))] bg-[oklch(var(--card))] sm:h-50 sm:w-50 h-40 w-40 relative flex items-center justify-center flex-col shadow-md shadow-black/40 transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg rounded-lg shadow-lg/30 shadow-card`}
+  >
+    <img
+      class="sm:h-24 sm:w-24 h-13 w-13 transition duration-300 group-hover:blur-2xl z-0"
+      src={imgSrc}
+      alt="project image"
+    />
+    <div
+      class="sm:absolute sm:inset-0 flex flex-col items-center justify-center z-10 text-center"
+    >
+      <p
+        class="sm:opacity-0 group-hover:opacity-100 sm:text-2xl text-xl font-bold transition duration-300"
+      >
+        {title}
+      </p>
+      <p
+        class="sm:opacity-0 group-hover:opacity-100 text-sm transition duration-300"
+      >
+        {description}
+      </p>
+    </div>
+  </div>
+</a>
