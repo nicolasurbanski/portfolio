@@ -11,12 +11,12 @@ import BackToTop from "../components/BackToTop.astro";
 ---
 
 <Layout>
-  <Navbar />
-  <Hero />
+  <Navbar  client:load/>
+  <Hero client:idle/>
   <About />
-  <Cards />
-  <Skills />
-  <Contact />
+  <Cards client:visible/>
+  <Skills client:visible/>
+  <Contact client:load/>
   <Footer />
-  <BackToTop />
+  <BackToTop client:load/>
 </Layout>
