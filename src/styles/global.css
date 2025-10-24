@@ -3,7 +3,7 @@
 html {
   scroll-behavior: smooth;
   background-color: oklch(var(--primary-background));
-  @apply font-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 section,
