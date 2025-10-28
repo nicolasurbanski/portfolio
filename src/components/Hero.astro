@@ -1,5 +1,6 @@
 <section class="m-0 relative w-full">
   <video
+  src="../hero/myhero.mp4"
   id="bgVideo"
   autoplay
   loop
@@ -7,10 +8,8 @@
   playsinline
   class="absolute top-0 left-0 w-full object-cover opacity-0 animate-[fadeIn_1.5s_forwards]"
   >
-  <source src="../hero/myhero.mp4" type="video/mp4" />
   </video>
 
-  <!-- CONTENT OVER VIDEO -->
   <div
   class="relative z-1 flex flex-col items-center justify-center h-full space-y-10"
   >
@@ -57,27 +56,3 @@
   </div>
   </div>
 </section>
-
-<script>
-  const video = document.getElementById("bgVideo") as HTMLVideoElement | null;
-if (video) {
-  video.addEventListener("loadeddata", () => {
-    video.classList.add("animate-[fadeIn_1.5s_forwards]");
-  });
-}
-document.addEventListener("DOMContentLoaded", () => {
-  const video = document.getElementById("bgVideo") as HTMLVideoElement | null;
-  if (!video) return;
-
-  video.play().catch(() => {});
-
-  const startVideo = () => {
-    video.play().catch(() => {});
-    document.removeEventListener("touchstart", startVideo);
-    document.removeEventListener("click", startVideo);
-  };
-
-  document.addEventListener("touchstart", startVideo, { once: true });
-  document.addEventListener("click", startVideo, { once: true });
-});
-</script>
