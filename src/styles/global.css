@@ -6,11 +6,8 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
-section,
-.globe,
-#bgVideo{
-  height: 100dvh;
-  min-height: 100dvh;
+section {
+  
 }
 
 #bgVideo {
