@@ -3,9 +3,7 @@
   class="flex items-center justify-center h-[100dvh] w-full bg-[oklch(var(--primary-background))] text-[oklch(var(--foreground))]"
 >
   <form
-    id="contact-form"
-    action="https://formsubmit.co/urbanskinicodev@gmail.com"
-    method="POST"
+    action='/api/mail' method="POST"
     class="drop-shadow-lg drop-shadow-[oklch(var(--card))]/90 flex items-center justify-center flex-col bg-[oklch(var(--primary-background))] w-[70vw] h-[90vh] lg:w-1/2 rounded-2xl"
   >
     <div class="text-center space-y-8">
@@ -20,7 +18,7 @@
               <input
                 id="first-name"
                 type="text"
-                name="first-name"
+                name="name"
                 autocomplete="given-name"
                 required
                 class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
@@ -29,7 +27,7 @@
           </div>
 
           <div class="sm:col-span-6">
-            <label for="last-name" class="block text-md font-medium text-start"
+            <label for="lastname" class="block text-md font-medium text-start"
               >apellido</label
             >
             <div class="mt-2">
@@ -37,6 +35,22 @@
                 id="last-name"
                 type="text"
                 name="last-name"
+                autocomplete="family-name"
+                required
+                class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-6">
+            <label for="lastname" class="block text-md font-medium text-start"
+              >Asunto</label
+            >
+            <div class="mt-2">
+              <input
+                id="subject"
+                type="text"
+                name="subject"
                 autocomplete="family-name"
                 required
                 class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
@@ -65,7 +79,7 @@
       <div class="mt-2">
         <textarea
           id="about"
-          name="about"
+          name="message"
           rows="7"
           required
           class="sm:w-100 w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-[oklch(var(--foreground))] focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30"
