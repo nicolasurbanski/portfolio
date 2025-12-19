@@ -3,7 +3,7 @@
   class="flex items-center justify-center h-[100dvh] w-full bg-[oklch(var(--primary-background))] text-[oklch(var(--foreground))]"
 >
   <form
-    action='/api/mail' method="POST"
+  id="contact-form"
     class="drop-shadow-lg drop-shadow-[oklch(var(--card))]/90 flex items-center justify-center flex-col bg-[oklch(var(--primary-background))] w-[70vw] h-[90vh] lg:w-1/2 rounded-2xl"
   >
     <div class="text-center space-y-8">
@@ -103,3 +103,29 @@
     </div>
   </form>
 </div>
+
+<script>
+  const form = document.getElementById("contact-form");
+
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const res = await fetch("/api/mail", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        window.location.href = "/enviado";
+      } else {
+        alert("Error enviando el mensaje");
+      }
+    });
+  }
+</script>
+
