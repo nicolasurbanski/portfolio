@@ -1,46 +1,27 @@
 ---
 import Card from "./Card.astro";
 
+// Para agregar un proyecto, sumá un objeto a esta lista
 const projects = [
   {
     imgSrc: "/img/Eucalyptus.svg",
     href: "https://eucalyptus.urbanskinico.dev",
-    target: "blank",
     title: "Eucalyptus",
-    description: "Pagina prototipo de restaurant",
-    appear: "appearL-on-scroll"
-  },
-  {
-    imgSrc: "/img/NUlogo.png",
-    title: "Dolor sit.",
-    description: "cool description.",
-    appear: "appearR-on-scroll"
-  },
-  {
-    imgSrc: "/img/NUlogo.png",
-    title: "Amet project.",
-    description: "Some text here.",
-    appear: "appearL-on-scroll"
-  },
-  {
-    imgSrc: "/img/NUlogo.png",
-    title: "Last card.",
-    description: "final description",
-    appear: "appearR-on-scroll"
+    description: "Página prototipo de restaurante",
   },
 ];
 ---
 
-<div
+<section
   id="projects"
   class="h-screen w-full flex flex-col items-center justify-center gap-20 bg-[oklch(var(--secondary-background))] text-[oklch(var(--foreground))]"
 >
-  <h1 class="p-5 animate-on-scroll text-[oklch(var(--foreground))] text-3xl text-center sm:border-b-2 sm:border-[oklch(var(--foreground))]">
+  <h2 class="p-5 animate-on-scroll text-[oklch(var(--foreground))] text-3xl text-center sm:border-b-2 sm:border-[oklch(var(--foreground))]">
     Algunos de mis proyectos
-  </h1>
-	<div class="grid grid-cols-2 sm:gap-10 lg:flex gap-5 items-center justify-center">
-	  {projects.map((p) => (
-		<Card {...p} />
-	  ))}
-	</div>
-</div>
+  </h2>
+  <div class="flex flex-wrap sm:gap-10 gap-5 items-center justify-center">
+    {projects.map((p, i) => (
+      <Card {...p} appear={i % 2 === 0 ? "appearL-on-scroll" : "appearR-on-scroll"} />
+    ))}
+  </div>
+</section>

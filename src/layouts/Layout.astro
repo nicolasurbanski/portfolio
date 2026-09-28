@@ -1,25 +1,66 @@
 ---
 import "../styles/theme.css";
 import "../styles/global.css";
-import "../layouts/Layout.astro"
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Nicolas Urbanski | Desarrollador full stack",
+  description = "Portfolio de Nicolas Urbanski, desarrollador full stack. Proyectos, habilidades y contacto para crear tu página web moderna.",
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/img/og-image.jpg", Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>urbanskinicolas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="icon" href="/img/NUlogo.png" />
-    <script src="https://kit.fontawesome.com/03dbd6f46f.js" crossorigin="anonymous"></script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Aplica el tema antes de pintar la página para evitar el parpadeo -->
+    <script is:inline>
+      (function () {
+        let theme = "dark";
+        try {
+          theme = localStorage.getItem("theme") || "dark";
+        } catch (e) {}
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
     <slot name="head-scripts" />
   </head>
   <body>
     <slot />
     <script src="/scripts/main.js" defer></script>
-    <script>
+    <script is:inline>
       (function () {
         function setVh() {
           const vh = window.innerHeight * 0.01;

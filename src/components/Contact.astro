@@ -1,13 +1,13 @@
-<div
+<section
   id="contact"
   class="flex items-center justify-center h-[100dvh] w-full bg-[oklch(var(--primary-background))] text-[oklch(var(--foreground))]"
 >
   <form
-  id="contact-form"
-    class="drop-shadow-lg drop-shadow-[oklch(var(--card))]/90 flex items-center justify-center flex-col bg-[oklch(var(--primary-background))] w-[70vw] h-[90vh] lg:w-1/2 rounded-2xl"
+    id="contact-form"
+    class="relative drop-shadow-lg drop-shadow-[oklch(var(--card))]/90 flex items-center justify-center flex-col bg-[oklch(var(--primary-background))] w-[70vw] h-[90vh] lg:w-1/2 rounded-2xl"
   >
     <div class="text-center space-y-8">
-      <h1 class="text-2xl mt-2">Contactame</h1>
+      <h2 class="text-2xl mt-2">Contactame</h2>
       <div class="text-center pb-3">
         <div class="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
           <div class="sm:col-span-12">
@@ -19,6 +19,7 @@
                 id="first-name"
                 type="text"
                 name="name"
+                maxlength="60"
                 autocomplete="given-name"
                 required
                 class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
@@ -27,7 +28,7 @@
           </div>
 
           <div class="sm:col-span-6">
-            <label for="lastname" class="block text-md font-medium text-start"
+            <label for="last-name" class="block text-md font-medium text-start"
               >apellido</label
             >
             <div class="mt-2">
@@ -35,6 +36,7 @@
                 id="last-name"
                 type="text"
                 name="last-name"
+                maxlength="60"
                 autocomplete="family-name"
                 required
                 class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
@@ -43,7 +45,7 @@
           </div>
 
           <div class="sm:col-span-6">
-            <label for="lastname" class="block text-md font-medium text-start"
+            <label for="subject" class="block text-md font-medium text-start"
               >Asunto</label
             >
             <div class="mt-2">
@@ -51,7 +53,8 @@
                 id="subject"
                 type="text"
                 name="subject"
-                autocomplete="family-name"
+                autocomplete="off"
+                maxlength="120"
                 required
                 class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
               />
@@ -65,6 +68,7 @@
                 id="email"
                 type="email"
                 name="email"
+                maxlength="254"
                 autocomplete="email"
                 required
                 class="block sm:w-full w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30 sm:text-md"
@@ -75,57 +79,75 @@
       </div>
     </div>
     <div class="sm:col-span-full">
-      <label for="about" class="block text-md font-medium text-start">Mensaje</label>
+      <label for="message" class="block text-md font-medium text-start">Mensaje</label>
       <div class="mt-2">
         <textarea
-          id="about"
+          id="message"
           name="message"
+          maxlength="5000"
           rows="7"
           required
           class="sm:w-100 w-[50vw] rounded-md bg-[oklch(var(--primary-background))]/60 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-[oklch(var(--foreground))]/20 placeholder:text-[oklch(var(--foreground))] focus:outline-2 focus:-outline-offset-2 focus:outline-[oklch(var(--foreground))]/30"
         ></textarea>
       </div>
     </div>
-    <div class="mt-6 flex items-center justify-center gap-x-6">
+    <!-- Honeypot anti-spam: oculto para personas, los bots suelen completarlo -->
+    <div class="absolute size-px overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
+      <label for="website">No completar este campo</label>
+      <input id="website" type="text" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+    <p id="form-status" class="mt-4 text-sm min-h-5" role="status" aria-live="polite"></p>
+    <div class="mt-2 flex items-center justify-center gap-x-6">
       <button
-        onclick="formReset()"
-        type="button"
+        type="reset"
         class="font-bold bg-[oklch(var(--secondary-background))] rounded-md px-3 py-2 text-sm"
       >
         Cancelar
       </button>
       <button
+        id="submit-button"
         type="submit"
-        class="border rounded-md px-3 py-2 text-sm font-bold"
+        class="border rounded-md px-3 py-2 text-sm font-bold disabled:opacity-50 disabled:cursor-wait"
       >
         Enviar
       </button>
     </div>
   </form>
-</div>
+</section>
 
 <script>
   const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const submitButton = document.getElementById("submit-button");
 
   if (form instanceof HTMLFormElement) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const formData = new FormData(form);
+      if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+      if (status) status.textContent = "Enviando...";
 
-      const res = await fetch("/api/mail", {
-        method: "POST",
-        body: formData,
-      });
+      try {
+        const res = await fetch("/api/mail", {
+          method: "POST",
+          body: new FormData(form),
+        });
+        const result = await res.json().catch(() => ({}));
 
-      const result = await res.json();
-
-      if (result.success) {
-        window.location.href = "/enviado";
-      } else {
-        alert("Error enviando el mensaje");
+        if (res.ok && result.success) {
+          window.location.href = "/enviado";
+          return;
+        }
+        if (status) status.textContent = result.error ?? "Error enviando el mensaje";
+      } catch {
+        if (status) status.textContent = "No se pudo conectar. Intentá de nuevo.";
       }
+
+      if (submitButton instanceof HTMLButtonElement) submitButton.disabled = false;
+    });
+
+    form.addEventListener("reset", () => {
+      if (status) status.textContent = "";
     });
   }
 </script>
-

@@ -1,22 +1,20 @@
-<div id="socials" class="flex flex-col w-full h-[100dvh] justify-between">
+<footer id="socials" class="flex flex-col w-full h-[100dvh] justify-between">
   <div class="flex-col animate-globe globe flex items-center justify-end">
     <div
       class="drop-shadow-lg drop-shadow-[oklch(var(--card))]/90 text-lg text-[oklch(var(--foreground))] flex flex-row pb-70 items-start text-center"
     >
       <p>Urbanski &nbsp;</p>
-      <div class="overflow-hidden h-6">
+      <div class="rotating-words h-6">
         <ul class="animate-list space-y-0">
           <li>Nicolas</li>
           <li>Dev</li>
           <li>
             <svg
-              class="h-7 w-7"
+              class="h-7 w-7 iconify iconify--twemoji"
               viewBox="0 0 36 36"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               aria-hidden="true"
-              role="img"
-              class="iconify iconify--twemoji"
               preserveAspectRatio="xMidYMid meet"
               fill="#000000"
               ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
@@ -56,6 +54,7 @@
         <a
           href="https://www.instagram.com/urbanskinico/"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="Instagram Profile"
         >
           <svg
@@ -90,6 +89,7 @@
         <a
           href="https://wa.me/542972530055?text=Hola!%20Vi%20tu%20portafolio%20y%20quiero%20hablar."
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="Whatsapp Chat"
         >
           <svg
@@ -120,6 +120,7 @@
         <a
           href="https://t.me/nicolas_urbanski"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="Telegram Profile"
         >
           <svg
@@ -147,6 +148,7 @@
         <a
           href="https://github.com/nicolasurbanski"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="GitHub profile"
         >
           <svg
@@ -173,10 +175,10 @@
       </li>
     </ul>
     <!-- LICENSE -->
-    <footer
+    <p
       class="text-xs text-[oklch(var(--foreground))] sm:w-100 w-70 flex flex-row gap-20 pb-10 justify-center text-center"
     >
-      © 2025 urbanskinico. Hecho con Astro, Tailwind CSS y Font Awesome.
-    </footer>
+      © {new Date().getFullYear()} urbanskinico. Hecho con Astro y Tailwind CSS.
+    </p>
   </div>
-</div>
+</footer>

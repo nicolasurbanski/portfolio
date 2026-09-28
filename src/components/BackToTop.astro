@@ -1,10 +1,19 @@
-<a href="#hero">
+<a href="#hero" aria-label="Volver arriba">
   <div
     id="arrow"
-    class="rounded-full opacity-0 fixed right-3 sm:bottom-3 bottom-7 h-10 w-10 bg-[oklch(var(--foreground))] md:right-4 md:bottom-4 md:h-13 md:w-13"
+    class="rounded-full opacity-0 pointer-events-none fixed right-3 sm:bottom-3 bottom-7 h-10 w-10 bg-[oklch(var(--foreground))] md:right-4 md:bottom-4 md:h-13 md:w-13"
   >
-    <i
-      class="fa-solid fa-arrow-up fa-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      style="color: oklch(var(--primary-background))"></i>
+    <svg
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-6 md:size-8"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="oklch(var(--primary-background))"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 20V4M5 11l7-7 7 7"></path>
+    </svg>
   </div>
 </a>

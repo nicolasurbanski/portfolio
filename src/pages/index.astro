@@ -1,6 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
-import Cards from "../components/Projects.astro";
+import Projects from "../components/Projects.astro";
 import Layout from "../layouts/Layout.astro";
 import Skills from "../components/Skills.astro";
 import Contact from "../components/Contact.astro";
@@ -11,12 +11,14 @@ import BackToTop from "../components/BackToTop.astro";
 ---
 
 <Layout>
-  <Navbar  client:load/>
-  <Hero client:idle/>
-  <About />
-  <Cards client:visible/>
-  <Skills client:visible/>
-  <Contact client:load/>
+  <Navbar />
+  <main class="w-full">
+    <Hero />
+    <About />
+    <Projects />
+    <Skills />
+    <Contact />
+  </main>
   <Footer />
-  <BackToTop client:idle/>
+  <BackToTop />
 </Layout>

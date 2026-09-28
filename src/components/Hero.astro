@@ -1,31 +1,32 @@
 <section id="hero" class="m-0 relative w-full sm:h-[100lvh] h-[108lvh] min-h-[90lvh]">
   <video
-    src="../hero/myhero.mp4"
+    src="/hero/myhero.mp4"
     id="bgVideo"
     autoplay
     loop
     muted
     playsinline
-    poster="../hero/fallback.png"
+    poster="/hero/fallback.webp"
+    aria-hidden="true"
     class="absolute top-0 left-0 object-cover opacity-0 animate-[fadeIn_1.5s_forwards]"
   ></video>
   <img
     id="heroFallback"
-    src="../hero/fallback.png"
-    alt="Hero background"
+    src="/hero/fallback.webp"
+    alt=""
     class="absolute top-0 left-0 w-full h-full object-cover hidden opacity-0 animate-[fadeIn_1.5s_forwards]"
   />
 
   <div class="relative z-10 flex flex-col items-center justify-center h-full space-y-10">
-    <div class="border border-white bg-black/50 p-5 text-white sm:text-6xl text-5xl">
+    <h1 class="border border-white bg-black/50 p-5 text-white sm:text-6xl text-5xl font-normal">
       URBANSKI.
       <span class="flex justify-center sm:text-lg text-sm font-semibold">
         Desarrollador full stack
       </span>
-    </div>
+    </h1>
 
-    <a href="#about" class="absolute sm:bottom-5 bottom-15 left-1/2 -translate-x-1/2">
-      <svg id="arrow-down" class="h-10 w-10" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <a href="#about" aria-label="Ir a la sección Acerca" class="absolute sm:bottom-5 bottom-15 left-1/2 -translate-x-1/2">
+      <svg id="arrow-down" class="h-10 w-10" aria-hidden="true" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
         <path
           d="M903.232 256l56.768 50.432L512 768 64 306.432 120.768 256 512 659.072z"
           fill="#ffffff"
@@ -34,11 +35,11 @@
     </a>
 
     <div class="sm:border-b-1 border-white p-5 sm:w-150 sm:block hidden text-xl">
-      <h5 class="text-white mt-10">
-        Queres que tu emprendimiento esté en internet para que alcances a millones de personas pero 
-        <span class="font-bold bg-black/60 italic">no sabes como?</span>
-        Yo te puedo ayudar y voy a tomar en cuenta todas tus preocupaciones a la vez que los estándares de las paginas web modernas para que la tuya no se quede atrás.
-      </h5>
+      <p class="text-white mt-10">
+        ¿Querés que tu emprendimiento esté en internet para que alcances a millones de personas pero
+        <span class="font-bold bg-black/60 italic">no sabés cómo?</span>
+        Yo te puedo ayudar y voy a tomar en cuenta todas tus preocupaciones a la vez que los estándares de las páginas web modernas para que la tuya no se quede atrás.
+      </p>
     </div>
   </div>
 </section>
